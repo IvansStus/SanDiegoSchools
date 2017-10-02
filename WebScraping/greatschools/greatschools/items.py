@@ -7,8 +7,9 @@
 
 import scrapy
 
-
 class GreatschoolsItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+	schoolTitle = scrapy.Field()
+	outOf5Stars = scrapy.Field()
+	totalNumReviews = scrapy.Field()
+	StarBreakout = scrapy.Field()
+

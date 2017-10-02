@@ -72,7 +72,8 @@ The code to get the school title is
 response.xpath("//div[contains(@class, 'school-name-container')]/h1[contains(@class,'school-name')]").extract()[0]
 ```
 
-4. 
+4. We can do the same for the other parts of the page.
+
 outOf5Stars:
 
 ```

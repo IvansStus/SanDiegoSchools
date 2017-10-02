@@ -85,6 +85,11 @@ totalNumReviews:
 response.xpath("//div[contains(@class, 'number-of-reviews')]/span[contains(@class, 'count')]/text()").extract()[0]
 ```
 
+TheStarBreakout
+It will return an array with 5 stars being at index 0, 4 stars at index 1, 3 stars at index 2, 2 stars at index 3, 1 stars at index 4
+```
+response.xpath("//div[contains(@class, 'star-rating-bar-viz')]/span[contains(@class, 'answer-count')]/text()").extract()
+```
 
 
 

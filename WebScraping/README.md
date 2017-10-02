@@ -92,6 +92,8 @@ It will return an array with 5 stars being at index 0, 4 stars at index 1, 3 sta
 response.xpath("//div[contains(@class, 'star-rating-bar-viz')]/span[contains(@class, 'answer-count')]/text()").extract()
 ```
 
+5. Exit scrapy shell by typing:
 
+## Items
 
-
+The main goal in scraping is to extract structured data from unstructured sources, typically, web pages. Scrapy spiders can return the extracted data as Python dicts. While convenient and familiar, Python dicts lack structure: it is easy to make a typo in a field name or return inconsistent data, especially in a larger project with many spiders (almost word for word copied from the great scrapy official documentation!).

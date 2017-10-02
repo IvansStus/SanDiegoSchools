@@ -2,6 +2,7 @@ import scrapy
 from greatschools.items import GreatschoolsItem
 from datetime import datetime
 import re
+import json
 
 
 class Fundrazr(scrapy.Spider):
@@ -34,8 +35,26 @@ class Fundrazr(scrapy.Spider):
 		# Getting totalNumReviews:
 		item['totalNumReviews'] = response.xpath("//div[contains(@class, 'number-of-reviews')]/span[contains(@class, 'count')]/text()").extract()[0]
 
-		# StarBreakout
+		# StarBreakdown 
 		item['StarBreakout'] = response.xpath("//div[contains(@class, 'star-rating-bar-viz')]/span[contains(@class, 'answer-count')]/text()").extract()
+
+		# Basically getting basic information about the school grades, studentsNumber, types
+		# Code below removes wierd spaces and new line characters. If this wasn't for short term project (like for production) I would make less error prone code. 
+		toDistributeList = [x.strip() for x in response.xpath("//div[@class='school-info__item']/descendant::text()").extract() if len(x.strip()) > 0]
+		item['grades'] = toDistributeList[1]
+		item['studentsNumber'] = toDistributeList[3]
+		item['types'] = toDistributeList[5]
+
+		# response.xpath("//div[contains(@data-component-name, 'SchoolProfileComponent')]/@data-props")
+
+		## Current code gets three titles in json stuff (unicode needs to convert)
+		# Race/ethnicity
+
+		# Low-income students
+
+		# Students with disabilities
+
+
 
 		yield item
 

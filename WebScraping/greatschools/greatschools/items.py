@@ -13,3 +13,7 @@ class GreatschoolsItem(scrapy.Item):
 	totalNumReviews = scrapy.Field()
 	StarBreakout = scrapy.Field()
 
+	grades = scrapy.Field()
+	studentsNumber = scrapy.Field()
+	types = scrapy.Field()
+

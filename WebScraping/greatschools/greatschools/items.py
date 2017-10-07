@@ -8,6 +8,8 @@
 import scrapy
 
 class GreatschoolsItem(scrapy.Item):
+
+	url = scrapy.Field()
 	schoolTitle = scrapy.Field()
 	outOf5Stars = scrapy.Field()
 	totalNumReviews = scrapy.Field()
@@ -16,4 +18,6 @@ class GreatschoolsItem(scrapy.Item):
 	grades = scrapy.Field()
 	studentsNumber = scrapy.Field()
 	types = scrapy.Field()
+
+	lowIncomeRaceDisbilityJson = scrapy.Field()
 

@@ -15,11 +15,13 @@ class Fundrazr(scrapy.Spider):
 	name = "my_scraper"
 	download_delay = 2
 
-	profileDf = pd.read_csv('school_profiles.csv')
-
-	start_urls = list(profileDf['overviewlink'])
-			
 	def parse(self, response):
+		profileDf = pd.read_csv('school_profiles.csv')
+		for href in list(profileDf['overviewlink']):
+			url  = href
+			yield scrapy.Request(href, callback=self.parse_dir_contents)	
+			
+	def parse_dir_contents(self, response):
 		item = GreatschoolsItem()
 
 		# get url of website
